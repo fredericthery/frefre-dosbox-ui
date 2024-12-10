@@ -3,11 +3,12 @@
   <app-main-sidenav></app-main-sidenav>
 
   <!-- main content -->
-  <div class="flex-1">
+  <div class="flex flex-1 flex-col overflow-hidden">
     <!-- header -->
     <app-main-header></app-main-header>
     <!-- content -->
-    <div class="ml-3">
+    <div class="flex-1 overflow-auto">
       <router-outlet></router-outlet>
     </div>
   </div>
+</div>

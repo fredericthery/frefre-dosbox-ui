@@ -4,7 +4,7 @@
   </div>
   <div class="navbar-center">
     <div class="form-control w-96">
-      <input type="text" placeholder="Search" class="input input-bordered" />
+      <input type="text" placeholder="Search" class="input input-ghost" />
     </div>
   </div>
   <div class="navbar-end">
@@ -17,10 +17,15 @@
         </div>
       </div>
       <ul tabindex="0" class="menu menu-md dropdown-content bg-base-200 rounded-box z-[1] mt-3 w-48 p-2 shadow">
-        <li><a routerLink="/account/sign-up"><ng-icon name="heroPlusCircle"></ng-icon>Sign up</a></li>
-        <li><a routerLink="/account/sign-in"><ng-icon name="heroArrowRightEndOnRectangle"></ng-icon>Sign in</a></li>
-        <li><a routerLink="/account/user-account"><ng-icon name="heroUser"></ng-icon>My account</a></li>
-        <li><a><ng-icon name="heroArrowRightOnRectangle"></ng-icon>Sign out</a></li>
+        <li [class.disabled]="isAuthenticated"><a routerLink="/account/sign-up"><ng-icon
+              name="heroPlusCircle"></ng-icon>Sign up</a></li>
+        <li [class.disabled]="isAuthenticated"><a routerLink="/account/sign-in"><ng-icon
+              name="heroArrowRightEndOnRectangle"></ng-icon>Sign in</a></li>
+        <li [class.disabled]="!isAuthenticated"><a routerLink="/account/user-account"><ng-icon
+              name="heroUser"></ng-icon>My account</a></li>
+        <li [class.disabled]="!isAuthenticated"><a (click)="logout()"><ng-icon
+              name="heroArrowRightOnRectangle"></ng-icon>Sign out</a>
+        </li>
       </ul>
     </div>
   </div>

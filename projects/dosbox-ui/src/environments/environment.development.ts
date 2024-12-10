@@ -1,7 +1,7 @@
 export const environment = {
   backend: {
     pocketbase: {
-      url: 'http://1270.0.1:8090'
+      url: 'http://127.0.0.1:8090'
     }
   }
 };
