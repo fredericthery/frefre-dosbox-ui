@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { NgIconComponent, provideIcons } from '@ng-icons/core';
 import { heroArrowRightEndOnRectangle, heroArrowRightOnRectangle, heroPlusCircle, heroUser, heroUsers } from '@ng-icons/heroicons/outline';
+import { AuthenticationService } from '../../../services/account/authentication.service';
 
 
 @Component({
@@ -16,5 +17,15 @@ import { heroArrowRightEndOnRectangle, heroArrowRightOnRectangle, heroPlusCircle
   styleUrl: './main-header.component.scss'
 })
 export class MainHeaderComponent {
+
+  constructor(private authentificationService: AuthenticationService) {}
+
+  logout() {
+    this.authentificationService.logout();
+  }
+
+  get isAuthenticated(): boolean {
+    return this.authentificationService.isAuthenticated();
+  }
 
 }
